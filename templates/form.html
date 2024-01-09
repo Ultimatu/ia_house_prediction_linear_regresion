@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>House Price Prediction</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../static/assets/img/favicon.png" rel="icon">
+  <link href="../static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+
+  <link href="../static/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="#" class="logo d-flex align-items-center">
+        <img src="../static/assets/img/logo.png" alt="">
+        <span>HouseGenius</span>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="/">Accueil</a></li>
+          <li><a class="nav-link scrollto active" href="#">Estimation</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          
+            <form method="POST" action="/form" data-aos="fade-up" data-aos-delay="200">
+                <fieldset class="border p-2 shadow-lg rounded">
+                    <legend class="text-center">Prédiction du prix mensuel d'une maison</legend>
+
+                    </legend>
+                    {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.year_of_construction.label(class="form-control-label") }}
+                    {{ form.year_of_construction(class="form-control") }}
+                    {% for error in form.year_of_construction.errors %}
+                        <small class="form-text text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.surface_area.label(class="form-control-label") }}
+                    {{ form.surface_area(class="form-control") }}
+                    {% for error in form.surface_area.errors %}
+                        <small class="form-text text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                <div class="form-group">
+                    {{ form.num_observations.label(class="form-control-label") }}
+                    {{ form.num_observations(class="form-control") }}
+                    {% for error in form.num_observations.errors %}
+                        <small class="form-text text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                <hr>
+                
+                <button type="submit" class="btn btn-outline-primary w-100 mt-1">Prédire</button>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="../static/assets/img/hero-img.png" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+
+</body>
+
+</html>
